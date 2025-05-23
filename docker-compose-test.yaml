@@ -1,0 +1,17 @@
+services:
+  eureka-server:
+    image: psup-eureka/eureka-server
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    environment:
+      - SPRING_PROFILES_ACTIVE=test
+      - SPRING_CONFIG_IMPORT=optional:configserver:http://config-server:8888
+      - SPRING_CLOUD_CONFIG_USERNAME=myUsername
+      - SPRING_CLOUD_CONFIG_PASSWORD=mySecretPassword
+    networks:
+      - psup-test-net
+
+networks:
+  psup-test-net:
+    external: true

@@ -1,9 +1,9 @@
 spring:
   config:
-    import: optional:configserver:http://localhost:8888
+    import: "${SPRING_CONFIG_IMPORT:optional:configserver:http://localhost:8888}"
   cloud:
     config:
       enabled: true
       fail-fast: true
-      username: myUsername
-      password: mySecretPassword
+      username: "${SPRING_CLOUD_CONFIG_USERNAME:myUsername}"
+      password: "${SPRING_CLOUD_CONFIG_PASSWORD:mySecretPassword}"
