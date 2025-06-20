@@ -1,9 +1,0 @@
-spring:
-  config:
-    import: "${SPRING_CONFIG_IMPORT:optional:configserver:http://localhost:8888}"
-  cloud:
-    config:
-      enabled: true
-      fail-fast: true
-      username: "${SPRING_CLOUD_CONFIG_USERNAME:myUsername}"
-      password: "${SPRING_CLOUD_CONFIG_PASSWORD:mySecretPassword}"
