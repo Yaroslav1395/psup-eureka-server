@@ -6,12 +6,15 @@ services:
       - "8761:8761"
     environment:
       - SPRING_PROFILES_ACTIVE=test
-      - SPRING_CONFIG_IMPORT=optional:configserver:http://config-server:8888
-      - SPRING_CLOUD_CONFIG_USERNAME=myUsername
-      - SPRING_CLOUD_CONFIG_PASSWORD=mySecretPassword
+      - CONFIG_SERVER_URL=http://config-server:8888
+      - CONFIG_SERVER_USERNAME=myUsername
+      - CONFIG_SERVER_PASSWORD=mySecretPassword
     networks:
-      - psup-test-net
+      - eureka-server-net
+      - psup-shared-net
 
 networks:
-  psup-test-net:
+  eureka-server-net:
+    driver: bridge
+  psup-shared-net:
     external: true
